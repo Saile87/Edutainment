@@ -17,7 +17,6 @@ struct ContentView: View {
     @State private var score = 0
     
     let multiplicationsRange = 1...10
-    let keyboard = numberPadView()
     
     var body: some View {
         NavigationView {
@@ -40,10 +39,10 @@ struct ContentView: View {
                         
                         VStack {
                             TextField("Ergebnis:", text: $answer)
-                                .keyboardType(.numberPad)
                                 .padding()
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                            
+                            Spacer()
+                            TastaturView()
                             Spacer()
                         }
                     }

@@ -7,17 +7,18 @@
 
 import SwiftUI
 
-struct numberPadView: View {
-    let buttons = [
+struct TastaturView: View {
+    
+    @State private var tastatur = [
         ["7", "8", "9"],
         ["4", "5", "6"],
         ["1", "2", "3"],
-        ["", "0", ""]
+        ["0"]
     ]
     
     var body: some View {
         VStack(spacing: 10) {
-            ForEach(buttons, id: \.self) { row in
+            ForEach(tastatur, id: \.self) { row in
                 HStack(spacing: 10) {
                     ForEach(row, id: \.self) { buttonTitle in
                         Button(action: {
@@ -27,10 +28,11 @@ struct numberPadView: View {
                         }, label: {
                             Text(buttonTitle)
                                 .font(.title)
-                                .frame(width: 80, height: 80)
-                                .background(Color.gray)
+                                .frame(width: 120, height: 50)
+                                .background(Color(red: 0.2, green: 0.2, blue: 0.2))
                                 .foregroundColor(.white)
-                                .cornerRadius(40)
+                                .cornerRadius(10)
+                                .shadow(color: .black, radius: 3)
                         })
                     }
                 }
@@ -45,7 +47,13 @@ struct numberPadView: View {
     }
 }
 
-struct numberPadView_Preview: PreviewProvider {
+struct TastaturView_Preview: PreviewProvider {
+    static var previews: some View {
+        TastaturView()
+    }
+}
+
+struct ContentView_Previews2: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
